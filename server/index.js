@@ -46,6 +46,11 @@ const db = mysql.createConnection({
     res.send("Hello")
 });
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+}
+
+
 app.listen(3001, () => {
     console.log("Yey, your server is running on port 3001");
   });
